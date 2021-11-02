@@ -1,0 +1,51 @@
+<%-include('partials/_header')%>
+
+<body>
+
+  <!-- Navigation -->
+  <%-include('partials/_nav')%>
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('/img/post-bg.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1> <%= post.title %> </h1>
+            <h2 class="subheading"><%= post.detail.split(' ').slice(0,5) %></h2>
+            <span class="meta">Posted by
+              <a href="#">Start Bootstrap</a>
+              on <%= post.dateCreated.toDateString() %></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <%=post.detail %>
+        </div>
+        <div class="col-xl-4 col-lg-5">
+          <!-- Share box -->
+          <div class="tm-bg-gray tm-share-box">
+            <div class="text-center">
+              <a href="/posts/edit/<%= post._id %>" class="btn btn-primary p-0 mb-4 tm-btn-animate tm-btn-download tm-icon-download"><span>Edit Post</span></a>	
+            </div>	
+            <div class="text-center">
+              <a href="/posts/<%=post._id%>?_method=DELETE" class="btn btn-danger p-0 tm-btn-animate tm-btn-download tm-icon-download"><span>Delete Post</span></a>	
+            </div>								
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <hr>
+
+  <!-- Footer -->
+  <%-include('partials/_footer')%>
