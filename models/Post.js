@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 const PostSchema=new mongoose.Schema({
     title:String,
     detail:String,
+    author:String,
     dateCreated:{
         type:Date,
         default:Date.now
